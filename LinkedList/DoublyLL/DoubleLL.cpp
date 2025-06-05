@@ -115,6 +115,34 @@ void insertattail(node*&tail,int d){
     temp->prev=tail;
     tail=temp;
 }
+//reversing singly linked list 
+/*
+node* reverse_sll(node*head){
+    node* temp=head;
+    node*prev=NULL;
+    while(temp!=NULL){
+        node*front=temp->next;
+        temp->next=prev;
+        prev=temp;
+        temp=front;
+    }
+    return prev;
+}
+*/
+//reversing doubly linked list . 
+node*reverse_dll(node* head){
+    if(head==nullptr || head->next==nullptr) return head;
+    node*prev=nullptr;
+    node*current=head;
+    while(current!=nullptr){
+        prev=current->prev;
+        current->prev=current->next;
+        current->next=prev;
+        current=current->next;
+    }
+    return prev->prev;
+}
+
 int main(){
     vector<int> arr={1,2,3,4,5,6};
     node*head=converarrtoDoublyll(arr);
