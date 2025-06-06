@@ -9,15 +9,6 @@ class node{
         this->next=nullptr;
     }
 };
-int counter(node*head){
-    int count=0;
-    node*temp=head;
-    while(temp!=nullptr){
-        count++;
-        temp=temp->next;
-    }
-    return count;
-}
 node* convert(vector<int> &arr){
     node*head=new node(arr[0]);
     node*mover=head;
@@ -28,9 +19,15 @@ node* convert(vector<int> &arr){
     }
     return head;
 }
-node* middle(){
-    
-}
+node* middleNode(node* head) {
+        node* slow=head;
+        node* fast=head;
+        while(fast!=NULL && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+       return slow;
+    }
 void print(node*head){
     node*temp=head;
     while(temp!=nullptr){
@@ -43,6 +40,4 @@ int main(){
     node*head=convert(arr);
     print(head);
     cout<<endl;
-    int c=counter(head);
-    cout<<c<<endl;
 }
