@@ -14,7 +14,7 @@ int solvebrute(vector<int> &nums,int k){
             maxl=max(maxl,j-i+1);
         }
     }
-    maxl;
+    return maxl;
 }
 //optimal
 int solveoptimal(vector<int> &nums , int k){
